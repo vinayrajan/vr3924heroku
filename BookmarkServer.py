@@ -82,7 +82,9 @@ def CheckURI(uri, timeout=5):
     # 1. Write this function.  Delete the following line.
     raise NotImplementedError("Step 1 isn't written yet.")
 
-
+class ThreadHTTPServer(ThreadingMixIn, http.server.HTTPServer):
+    "This is an HTTPServer that supports thread-based concurrency."
+	
 class Shortener(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         # A GET request will either be for / (the root path) or for /some-name.
